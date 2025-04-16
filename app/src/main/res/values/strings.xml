@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DailyDietTrackingApp</string>
+    <string name="welcome_admin">Welcome Admin</string>
+    <string name="welcome_adm">Welcome Admin</string>
+    <string name="users">Users</string>
+    <string name="adding_diet_tips">Adding Diet Tips</string>
+    <string name="sign_out">Sign out</string>
 </resources>
