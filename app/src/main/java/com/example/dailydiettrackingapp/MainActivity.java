@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.room.Room;
+
+import com.example.dailydiettrackingapp.data.AppDatabase;
+import com.example.dailydiettrackingapp.data.Meal;
+import com.example.dailydiettrackingapp.data.MealDAO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,5 +25,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "meal-db").allowMainThreadQueries().build();
+        MealDAO mealDao = db.mealDAO();
+
+        Meal meal = new Meal();
+        meal.name = "Test Meal";
+        meal.calories = 500;
+        meal.protein = 35;
+        meal.fat = 20;
+        meal.carbs = 45;
+
+        mealDao.insert(meal);
+        mealDao.getAllMeals();
     }
 }
