@@ -30,16 +30,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.19"
         tools:ignore="MissingConstraints" />
-<EditText
-        android:id="@+id/titleEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-    android:background="@drawable/rect_background"
 
-    android:hint="Enter Title"
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rect_background"
+        android:hint="@string/enter_title"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rect_background"
+            android:hint="@string/description"
+            android:inputType="textMultiLine"
+            android:minLines="3"
+            app:layout_constraintTop_toBottomOf="@+id/titleEditText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/usersButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:text="@string/users"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
