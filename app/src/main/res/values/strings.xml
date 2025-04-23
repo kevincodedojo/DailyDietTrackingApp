@@ -6,4 +6,8 @@
     <string name="adding_diet_tips">Adding Diet Tips</string>
     <string name="sign_out">Sign out</string>
     <string name="welcome_user">Welcome User1</string>
+    <string name="adding_diet_tip">Adding diet tips</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="description">Description</string>
+    <string name="submit">Submit</string>
 </resources>
