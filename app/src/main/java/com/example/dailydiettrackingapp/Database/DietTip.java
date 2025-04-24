@@ -1,4 +1,4 @@
-package com.example.dailydiettrackingapp.data;
+package com.example.dailydiettrackingapp.Database;
 
 @Entity(tableName = AppDatabase.DIET_TIP_TABLE)
 public class DietTip {

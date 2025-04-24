@@ -1,4 +1,4 @@
-package com.example.dailydiettrackingapp.data;
+package com.example.dailydiettrackingapp.Database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

@@ -9,9 +9,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
-import com.example.dailydiettrackingapp.data.AppDatabase;
-import com.example.dailydiettrackingapp.data.Meal;
-import com.example.dailydiettrackingapp.data.MealDAO;
+import com.example.dailydiettrackingapp.Database.AppDatabase;
+import com.example.dailydiettrackingapp.Database.Meal;
+import com.example.dailydiettrackingapp.Database.MealDAO;
 
 public class MainActivity extends AppCompatActivity {
 
