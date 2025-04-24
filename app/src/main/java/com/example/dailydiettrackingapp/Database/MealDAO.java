@@ -1,8 +1,10 @@
-package com.example.dailydiettrackingapp.data;
+package com.example.dailydiettrackingapp.Database;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.dailydiettrackingapp.Database.entities.Meal;
 
 import java.util.List;
 @Dao
