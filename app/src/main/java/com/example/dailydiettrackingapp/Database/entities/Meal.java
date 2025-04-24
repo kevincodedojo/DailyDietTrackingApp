@@ -1,4 +1,4 @@
-package com.example.dailydiettrackingapp.Database;
+package com.example.dailydiettrackingapp.Database.entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
