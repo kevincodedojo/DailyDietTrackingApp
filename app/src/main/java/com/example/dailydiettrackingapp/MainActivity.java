@@ -10,21 +10,20 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.room.Room;
 
 import com.example.dailydiettrackingapp.Database.AppDatabase;
+import com.example.dailydiettrackingapp.Database.DietTipDAO;
+import com.example.dailydiettrackingapp.Database.entities.DietTip;
 import com.example.dailydiettrackingapp.Database.entities.Meal;
 import com.example.dailydiettrackingapp.Database.MealDAO;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
 
         AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "meal-db").allowMainThreadQueries().build();
         MealDAO mealDao = db.mealDAO();
@@ -38,5 +37,24 @@ public class MainActivity extends AppCompatActivity {
 
         mealDao.insert(meal);
         mealDao.getAllMeals();
+
+        AppDatabase dbase = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "app-database").build();
+
+        DietTipDAO dietTipDAO = dbase.dietTipDAO();
+
+        new Thread(() -> {
+            DietTip newTip = new DietTip("Healthy Eating", "Eat more fruits and vegetables");
+
+            dietTipDAO.insert(newTip);
+
+            List<DietTip> dietTips = dietTipDAO.getAllRecords();
+
+
+        }).start();
+
+
+
+
     }
 }
