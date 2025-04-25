@@ -6,15 +6,19 @@ import androidx.room.TypeConverters;
 
 import com.example.dailydiettrackingapp.Database.entities.DietTip;
 import com.example.dailydiettrackingapp.Database.entities.Meal;
+import com.example.dailydiettrackingapp.Database.entities.User;
 
 
-@Database(entities = {Meal.class, DietTip.class}, version = 2,exportSchema = false)
+@Database(entities = {Meal.class, DietTip.class, User.class}, version = 3,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DIET_TIP_TABLE = "dietTipTable";
 
     public abstract MealDAO mealDAO();
 
     public abstract DietTipDAO dietTipDAO();
+
+    public abstract UserDAO userDAO();
+
 
 
 
