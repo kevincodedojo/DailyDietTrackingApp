@@ -10,9 +10,10 @@ import java.util.Objects;
 @Entity(tableName = AppDatabase.DIET_TIP_TABLE)
 public class DietTip {
     @PrimaryKey(autoGenerate = true)
-
+    private int id;
     private String title;
     private String description;
+
 
 
 
@@ -43,4 +44,16 @@ public DietTip(String title, String description){
     }
 
 
+    public String getDescription() {
+        return description;
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
