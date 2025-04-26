@@ -28,6 +28,7 @@
             android:name=".WelcomeUser1"
 
             android:exported="false" />
+        <activity android:name=".LoginPage" />
     </application>
 
 </manifest>
