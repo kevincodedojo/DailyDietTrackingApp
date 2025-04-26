@@ -2,6 +2,7 @@ package com.example.dailydiettrackingapp;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +13,8 @@ import androidx.room.Room;
 import com.example.dailydiettrackingapp.Database.AppDatabase;
 import com.example.dailydiettrackingapp.Database.UserDAO;
 import com.example.dailydiettrackingapp.Database.entities.User;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,6 +46,11 @@ public class LoginActivity extends AppCompatActivity {
             } else {
                 User user = new User(username, password);
                 userDAO.insert(user);
+
+                List<User> users = userDAO.getAllUsers();
+                for (User u : users) {
+                    Log.d("LoginActivity", "User: " + u.getName() + " Password: " + u.getPassword());
+                }
                 Toast.makeText(this, "User registered successfuly!", Toast.LENGTH_SHORT).show();
             }
         });
