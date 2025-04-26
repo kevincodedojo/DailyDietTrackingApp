@@ -13,6 +13,7 @@ import com.example.dailydiettrackingapp.data.AppDatabase;
 import com.example.dailydiettrackingapp.data.Meal;
 import com.example.dailydiettrackingapp.data.MealDAO;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

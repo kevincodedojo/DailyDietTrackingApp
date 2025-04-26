@@ -28,6 +28,8 @@
             android:name=".WelcomeUser1"
 
             android:exported="false" />
+        <activity android:name=".LandingPage"
+            android:exported="false" />
     </application>
 
 </manifest>
