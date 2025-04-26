@@ -27,7 +27,7 @@ public class LandingPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing_page);
+        setContentView(R.layout.activiy_landing_page);
 
         // Get the username from the Intent
         String username = getIntent().getStringExtra("username");
