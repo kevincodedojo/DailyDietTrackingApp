@@ -9,7 +9,7 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
-    private String password;
+    private String password; // todo: encrypt password before storing in database
 
     /**
      * constructor to create a new user instance
