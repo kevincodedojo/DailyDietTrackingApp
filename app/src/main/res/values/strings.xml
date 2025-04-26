@@ -6,4 +6,6 @@
     <string name="adding_diet_tips">Adding Diet Tips</string>
     <string name="sign_out">Sign out</string>
     <string name="welcome_user">Welcome User1</string>
+    <string name="let_s_get_started">Let\'s Get Started</string>
+    <string name="welcome_to_the_n_daily_diet_tracking_app">Welcome to the \n Daily Diet Tracking App</string>
 </resources>
