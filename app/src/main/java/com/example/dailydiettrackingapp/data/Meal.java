@@ -11,6 +11,6 @@ public class Meal {
 
     public int calories;
     public int protein;
-    public int fat;
+    public int fat;//x`x`x`
     public int carbs;
 }
