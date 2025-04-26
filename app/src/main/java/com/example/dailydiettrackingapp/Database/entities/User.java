@@ -10,6 +10,7 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name;
+    private boolean isAdmin;
 
     public User(String name) {
         this.name = name;
