@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
 import com.example.dailydiettrackingapp.Database.entities.DietTip;
+import com.example.dailydiettrackingapp.Database.entities.DietTracking;
 import com.example.dailydiettrackingapp.Database.entities.Meal;
 import com.example.dailydiettrackingapp.Database.entities.User;
 
@@ -14,7 +15,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
-@Database(entities = {Meal.class, DietTip.class, User.class}, version = 4,exportSchema = false)
+
+@Database(entities = {Meal.class, DietTip.class, User.class, DietTracking.class}, version = 4, exportSchema = false)
+
+
 public abstract class AppDatabase extends RoomDatabase {
     public static final String DIET_TIP_TABLE = "dietTipTable";
 
@@ -65,8 +69,5 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();
 
-
-
-
-
+    public abstract DietTrackingDAO dietTrackingDAO();
 }
