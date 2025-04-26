@@ -1,17 +1,15 @@
 package com.example.dailydiettrackingapp;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.dailydiettrackingapp.Database.AppDatabase;
 import com.example.dailydiettrackingapp.Database.DietTrackingDAO;
 import com.example.dailydiettrackingapp.Database.entities.DietTracking;
-import com.example.dailydiettrackingapp.adapters.DietTrackingAdapter;
 
 import java.util.List;
 import android.os.Handler;
@@ -19,8 +17,7 @@ import android.os.Looper;
 
 public class LandingPage extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private DietTrackingAdapter adapter;
+    private LinearLayout dietTrackingContainer;
     private AppDatabase db;
     private DietTrackingDAO dietTrackingDAO;
 
@@ -36,11 +33,8 @@ public class LandingPage extends AppCompatActivity {
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
         welcomeTextView.setText("Welcome back " + username + "!");
 
-        // Set up RecyclerView
-        recyclerView = findViewById(R.id.dietTrackingRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new DietTrackingAdapter(null);
-        recyclerView.setAdapter(adapter);
+        // Find the container for diet tracking entries
+        dietTrackingContainer = findViewById(R.id.dietTrackingContainer);
 
         // Initialize the database and DAO
         db = Room.databaseBuilder(getApplicationContext(),
@@ -54,10 +48,16 @@ public class LandingPage extends AppCompatActivity {
     private void loadDietTrackingData() {
         new Thread(() -> {
             List<DietTracking> dietTrackingList = dietTrackingDAO.getAllDietTrackingRecords();
-            // Update the RecyclerView on the main thread
-            new Handler(Looper.getMainLooper()).post(() ->
-                    adapter.setDietTrackingList(dietTrackingList)
-            );
+            // Update the UI on the main thread
+            new Handler(Looper.getMainLooper()).post(() -> {
+                for (DietTracking dietTracking : dietTrackingList) {
+                    TextView mealTextView = new TextView(this);
+                    mealTextView.setText(dietTracking.getMealName() + " - Calories: " + dietTracking.getCalories());
+                    mealTextView.setTextSize(16);
+                    mealTextView.setPadding(0, 8, 0, 8);
+                    dietTrackingContainer.addView(mealTextView);
+                }
+            });
         }).start();
     }
 }
