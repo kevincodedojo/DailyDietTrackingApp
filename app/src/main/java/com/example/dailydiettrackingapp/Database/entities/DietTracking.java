@@ -3,6 +3,8 @@ package com.example.dailydiettrackingapp.Database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 // this is the entity class for diet tracking
+
+// it represents enitire list of meals eaten by the user
 @Entity(tableName = "diet_tracking_table")
 public class DietTracking {
 
