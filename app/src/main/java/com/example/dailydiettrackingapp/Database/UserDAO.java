@@ -17,4 +17,7 @@ public interface UserDAO {
 
     @Query("SELECT * FROM user_table")
     List<User> getAllUsers();
+
+    @Query("SELECT * FROM user_table WHERE name = :username AND password = :password")
+    User getUserByCredentials(String username, String password);
 }
