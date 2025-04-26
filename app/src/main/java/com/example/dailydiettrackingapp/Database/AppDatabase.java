@@ -15,6 +15,10 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String DIET_TIP_TABLE = "dietTipTable";
 
     public abstract MealDAO mealDAO();
+
     public abstract DietTipDAO dietTipDAO();
+
     public abstract UserDAO userDAO();
+
     public abstract DietTrackingDAO dietTrackingDAO();
+}
