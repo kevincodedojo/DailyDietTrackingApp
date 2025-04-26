@@ -11,8 +11,7 @@
         android:id="@+id/backButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="<"
-        tools:layout_editor_absoluteX="20dp"
+        android:text="←"        tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="20dp"
         tools:ignore="MissingConstraints" />
 
