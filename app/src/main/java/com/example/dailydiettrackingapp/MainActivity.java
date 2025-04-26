@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "app_database").allowMainThreadQueries().build();
 
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "meal-db").allowMainThreadQueries().build();
         MealDAO mealDao = db.mealDAO();
+        DietTipDAO dietTipDAO = db.dietTipDAO();
+
 
         Meal meal = new Meal();
         meal.name = "Test Meal";
@@ -38,10 +40,13 @@ public class MainActivity extends AppCompatActivity {
         mealDao.insert(meal);
         mealDao.getAllMeals();
 
-        AppDatabase dbase = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "app-database").build();
+        new Thread(() -> {
+            mealDao.insert(meal);
+            List<Meal> allMeals = mealDao.getAllMeals();
+            // Do something with allMeals if needed
+        }).start();
 
-        DietTipDAO dietTipDAO = dbase.dietTipDAO();
+
 
         new Thread(() -> {
             DietTip newTip = new DietTip("Healthy Eating", "Eat more fruits and vegetables");
