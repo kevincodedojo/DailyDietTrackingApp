@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
 //*************temporary comment code to test database*************
 //        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "meal-db").allowMainThreadQueries().build();
 //        MealDAO mealDao = db.mealDAO();
@@ -69,5 +70,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
     }
 }
