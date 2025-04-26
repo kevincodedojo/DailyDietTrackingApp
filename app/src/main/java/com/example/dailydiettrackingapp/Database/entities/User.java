@@ -4,6 +4,10 @@ package com.example.dailydiettrackingapp.Database.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+/**
+ * entity class for the user
+ * stores the user's information, including name & password
+ */
 @Entity(tableName = "user_table")
 public class User {
     @PrimaryKey(autoGenerate = true)
