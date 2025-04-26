@@ -14,6 +14,12 @@ public class Converters {
             return new Date(value);
         }
     }
-
-
+    @TypeConverter
+    public static Long dateToTimestamp(Date date) {
+        if (date == null) {
+            return null;
+        } else {
+            return date.getTime();
+        }
+    }
 }
