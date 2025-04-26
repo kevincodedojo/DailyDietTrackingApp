@@ -23,4 +23,13 @@ public class LoginActivityTest {
                 AppDatabase.class).allowMainThreadQueries().build();
         userDAO = db.userDAO();
     }
+
+    @Test
+    public void testUserInsert() {
+        User user = new User("testuser", "testpassword");
+        userDAO.insert(user);
+        User savedUser = userDAO.getAllUsers().get(0);
+        assertEquals(savedUser.getName(), "testuser");
+        assertEquals(savedUser.getPassword(), "testpassword");
+    }
 }
