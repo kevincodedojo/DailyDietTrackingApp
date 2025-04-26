@@ -17,11 +17,11 @@ public class User {
         this.name = name;
     }
 
-    public User(String name, String password, boolean isAdmin) {
-        this.name = name;
-        this.password = password;
-        this.isAdmin = isAdmin;
-    }
+//    public User(String name, String password, boolean isAdmin) {
+//        this.name = name;
+//        this.password = password;
+//        this.isAdmin = isAdmin;
+//    }
 
     public int getId() {
         return id;
