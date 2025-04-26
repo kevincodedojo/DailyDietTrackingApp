@@ -2,7 +2,7 @@ package com.example.dailydiettrackingapp.Database.entities;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
+// this is the entity class for diet tracking
 @Entity(tableName = "diet_tracking_table")
 public class DietTracking {
 
