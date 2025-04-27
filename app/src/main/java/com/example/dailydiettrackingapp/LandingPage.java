@@ -1,6 +1,9 @@
 package com.example.dailydiettrackingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +48,16 @@ public class LandingPage extends AppCompatActivity {
 
         // Load diet tracking data
         loadDietTrackingData();
+
+        // Add button functionality
+        Button goToWelcomeUserButton = findViewById(R.id.btn_go_to_welcome_user);
+        goToWelcomeUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LandingPage.this, WelcomeUser1.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadDietTrackingData() {
