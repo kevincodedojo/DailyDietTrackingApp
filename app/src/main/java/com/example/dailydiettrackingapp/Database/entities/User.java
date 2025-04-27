@@ -1,9 +1,11 @@
 package com.example.dailydiettrackingapp.Database.entities;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
 /**
- * entity class for the user
- * stores the user's information, including name & password
+ * Entity class for the user
+ * Stores the user's information, including name & password
  */
 
 @Entity(tableName = "user_table")
@@ -12,9 +14,10 @@ public class User {
     private int id;
     private String name;
     private String password; // todo: encrypt password before storing in database
+    private boolean isAdmin;
 
     /**
-     * constructor to create a new user instance
+     * Constructor to create a new user instance
      * @param name name of the user
      * @param password password for the user
      */
@@ -23,16 +26,12 @@ public class User {
         this.password = password;
     }
 
-    /**
-     * gets user's id
-     * @return the user's id
-     */
     public int getId() {
         return id;
     }
 
     /**
-     * sets user's id
+     * Sets user's id
      * @param id the new id for the user
      */
     public void setId(int id) {
@@ -40,7 +39,7 @@ public class User {
     }
 
     /**
-     * gets the user's name
+     * Gets the user's name
      * @return the user's name
      */
     public String getName() {
@@ -48,7 +47,7 @@ public class User {
     }
 
     /**
-     * sets the user's name
+     * Sets the user's name
      * @param name the new name for the user
      */
     public void setName(String name) {
@@ -56,7 +55,7 @@ public class User {
     }
 
     /**
-     * gets the user's password
+     * Gets the user's password
      * @return the user's password
      */
     public String getPassword() {
@@ -64,10 +63,26 @@ public class User {
     }
 
     /**
-     * sets the user's password
+     * Sets the user's password
      * @param password the new password for the user
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Gets if the user is an admin
+     * @return true if admin, false otherwise
+     */
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    /**
+     * Sets the user as admin or not
+     * @param admin whether the user is an admin
+     */
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
