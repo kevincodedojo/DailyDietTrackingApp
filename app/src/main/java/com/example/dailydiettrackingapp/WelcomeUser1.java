@@ -35,6 +35,9 @@ public class WelcomeUser1 extends AppCompatActivity {
         });
 
         trackingDietButton.setOnClickListener(v -> {
+            // Navigate to TrackingDietActivity
+            Intent intent = new Intent(WelcomeUser1.this, TrackingDietActivity.class);
+            startActivity(intent);
         });
 
         dietaryTipsButton.setOnClickListener(v -> {
