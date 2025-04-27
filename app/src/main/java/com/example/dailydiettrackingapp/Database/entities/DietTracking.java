@@ -59,3 +59,4 @@ public class DietTracking {
     public void setCalories(int calories) {
 
 }
+}
