@@ -38,7 +38,9 @@ public class WelcomeUser1 extends AppCompatActivity {
         });
 
         dietaryTipsButton.setOnClickListener(v -> {
-            // Add intent to navigate to Dietary Tips Activity
+            // Navigate to DisplayDietaryTipsActivity
+            Intent intent = new Intent(WelcomeUser1.this, DisplayDietaryTipsActivity.class);
+            startActivity(intent);
         });
     }
 }
