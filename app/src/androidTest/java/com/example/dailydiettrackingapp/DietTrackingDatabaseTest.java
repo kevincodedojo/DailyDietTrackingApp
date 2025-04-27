@@ -24,5 +24,30 @@ public class DietTrackingDatabaseTest {
     private AppDatabase db;
     private DietTrackingDAO dietTrackingDAO;
 
+    @Before
+    public void createDb() {
+        db = Room.inMemoryDatabaseBuilder(
+                ApplicationProvider.getApplicationContext(),
+                AppDatabase.class
+        ).allowMainThreadQueries().build();
+        dietTrackingDAO = db.dietTrackingDAO();
+    }
+
+    @After
+    public void closeDb() throws IOException {
+        db.close();
+    }
+
+    @Test
+    public void testInsertDietTracking() {
+        DietTracking dietTracking = new DietTracking("Breakfast", "2023-10-01", 300);
+        dietTrackingDAO.insert(dietTracking);
+
+        List<DietTracking> records = dietTrackingDAO.getAllDietTrackingRecords();
+        assertEquals(1, records.size());
+        assertEquals("Breakfast", records.get(0).getMealName());
+        assertEquals("2023-10-01", records.get(0).getDate());
+        assertEquals(300, records.get(0).getCaloriesConsumed());
+    }
 
 }
