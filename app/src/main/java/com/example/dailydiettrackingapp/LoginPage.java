@@ -22,8 +22,8 @@ public class LoginPage extends AppCompatActivity {
 
         // Initialize the HashMap with username-password pairs
         userPasswordMap = new HashMap<>();
-        userPasswordMap.put("admin", "admin123"); // Example admin user
-        userPasswordMap.put("user1", "password1"); // Example regular user
+        userPasswordMap.put("admin", "admin"); // Example admin user
+        userPasswordMap.put("user1", "user1"); // Example regular user
 
         EditText usernameInput = findViewById(R.id.usernameInput);
         EditText passwordInput = findViewById(R.id.passwordInput);

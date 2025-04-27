@@ -57,6 +57,17 @@ public abstract class AppDatabase extends RoomDatabase {
                 dietTipDAO.insert(new DietTip("Portion Control", "Use smaller plates to control portion sizes."));
 
                 //add default meals or users here if needed
+
+                // Insert default data for User table
+                UserDAO userDAO = INSTANCE.userDAO();
+                userDAO.insert(new User("admin", "admin"));
+                userDAO.insert(new User("user1", "user1"));
+
+
+                // Insert default data for DietTracking table
+                DietTrackingDAO dietTrackingDAO = INSTANCE.dietTrackingDAO();
+                dietTrackingDAO.insert(new DietTracking("Breakfast", "2023-10-01", 300));
+                dietTrackingDAO.insert(new DietTracking("Lunch", "2023-10-01", 600));
             });
         }
 
