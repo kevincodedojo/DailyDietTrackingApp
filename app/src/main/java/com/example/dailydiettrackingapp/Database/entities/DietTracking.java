@@ -12,7 +12,8 @@ public class DietTracking {
     private int id;
     private String mealName;
     private String date;
-    private int caloriesConsumed;
+    private int caloriesConsumed; //total calories for the day
+    private int calories;
 
     public DietTracking(String mealName, String date, int caloriesConsumed) {
         this.mealName = mealName;
