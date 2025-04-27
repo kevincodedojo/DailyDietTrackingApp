@@ -8,8 +8,6 @@ import com.example.dailydiettrackingapp.Database.AppDatabase;
 import com.example.dailydiettrackingapp.Database.DietTrackingDAO;
 import com.example.dailydiettrackingapp.Database.entities.DietTracking;
 
-
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,10 +17,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-
-//thjs test is for the diet tracking database
-
-// it checks if the diet tracking data is inserted correctly
 
 @RunWith(AndroidJUnit4.class)
 public class DietTrackingDatabaseTest {
@@ -56,4 +50,17 @@ public class DietTrackingDatabaseTest {
         assertEquals(300, records.get(0).getCaloriesConsumed());
     }
 
+    @Test
+    public void testRetrieveAllDietTrackingRecords() {
+        DietTracking entry1 = new DietTracking("Breakfast", "2023-10-01", 300);
+        DietTracking entry2 = new DietTracking("Lunch", "2023-10-01", 600);
+
+        dietTrackingDAO.insert(entry1);
+        dietTrackingDAO.insert(entry2);
+
+        List<DietTracking> records = dietTrackingDAO.getAllDietTrackingRecords();
+        assertEquals(2, records.size());
+        assertEquals("Lunch", records.get(1).getMealName());
+        assertEquals(600, records.get(1).getCaloriesConsumed());
+    }
 }
