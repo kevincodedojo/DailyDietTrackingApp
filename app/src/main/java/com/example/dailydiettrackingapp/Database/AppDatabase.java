@@ -64,8 +64,13 @@ public abstract class AppDatabase extends RoomDatabase {
                 userDAO.insert(new User("user1", "user1"));
 
 
+
+
                 // Insert default data for DietTracking table
                 DietTrackingDAO dietTrackingDAO = INSTANCE.dietTrackingDAO();
+                for (int i = 1; i <= 50; i++) {
+                    dietTrackingDAO.insert(new DietTracking("Meal " + i, "2023-10-" + (i % 30 + 1), 100 + i * 10));
+                }
                 dietTrackingDAO.insert(new DietTracking("Breakfast", "2023-10-01", 300));
                 dietTrackingDAO.insert(new DietTracking("Lunch", "2023-10-01", 600));
             });

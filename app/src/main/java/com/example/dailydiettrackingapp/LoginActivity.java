@@ -1,5 +1,6 @@
 package com.example.dailydiettrackingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -51,6 +52,11 @@ public class LoginActivity extends AppCompatActivity {
                         userFound = true;
                         if (u.getPassword().equals(password)) {
                             Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+
+                            // Navigate to LandingPage
+                            Intent intent = new Intent(LoginActivity.this, LandingPage.class);
+                            intent.putExtra("username", username); // Pass username to LandingPage
+                            startActivity(intent);
                         } else {
                             Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show();
                         }
@@ -62,6 +68,11 @@ public class LoginActivity extends AppCompatActivity {
                     User newUser = new User(username, password);
                     userDAO.insert(newUser);
                     Toast.makeText(this, "New user registered successfully!", Toast.LENGTH_SHORT).show();
+
+                    // Navigate to LandingPage for new user
+                    Intent intent = new Intent(LoginActivity.this, LandingPage.class);
+                    intent.putExtra("username", username); // Pass username to LandingPage
+                    startActivity(intent);
                 }
 
                 // Debugging output (optional)
