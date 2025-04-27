@@ -20,6 +20,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+//thjs test is for the diet tracking database
+// it checks if the diet tracking data is inserted correctly
+
 @RunWith(AndroidJUnit4.class)
 public class DietTrackingDatabaseTest {
 
