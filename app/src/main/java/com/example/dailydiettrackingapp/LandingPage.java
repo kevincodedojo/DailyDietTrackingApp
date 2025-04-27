@@ -1,10 +1,11 @@
 package com.example.dailydiettrackingapp;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.example.dailydiettrackingapp.Database.AppDatabase;
@@ -17,7 +18,7 @@ import android.os.Looper;
 
 public class LandingPage extends AppCompatActivity {
 
-    private LinearLayout dietTrackingContainer;
+    private RecyclerView dietTrackingRecyclerView;
     private AppDatabase db;
     private DietTrackingDAO dietTrackingDAO;
 
@@ -33,8 +34,9 @@ public class LandingPage extends AppCompatActivity {
         TextView welcomeTextView = findViewById(R.id.welcomeTextView);
         welcomeTextView.setText("Welcome back " + username + "!");
 
-        // Find the container for diet tracking entries
-        dietTrackingContainer = findViewById(R.id.dietTrackingContainer);
+        // Find the RecyclerView for diet tracking entries
+        dietTrackingRecyclerView = findViewById(R.id.dietTrackingRecyclerView);
+        dietTrackingRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize the database and DAO
         db = Room.databaseBuilder(getApplicationContext(),
@@ -48,15 +50,9 @@ public class LandingPage extends AppCompatActivity {
     private void loadDietTrackingData() {
         new Thread(() -> {
             List<DietTracking> dietTrackingList = dietTrackingDAO.getAllDietTrackingRecords();
-            // Update the UI on the main thread
             new Handler(Looper.getMainLooper()).post(() -> {
-                for (DietTracking dietTracking : dietTrackingList) {
-                    TextView mealTextView = new TextView(this);
-                    mealTextView.setText(dietTracking.getMealName() + " - Calories: " + dietTracking.getCalories());
-                    mealTextView.setTextSize(16);
-                    mealTextView.setPadding(0, 8, 0, 8);
-                    dietTrackingContainer.addView(mealTextView);
-                }
+                DietTrackingAdapter adapter = new DietTrackingAdapter(dietTrackingList);
+                dietTrackingRecyclerView.setAdapter(adapter);
             });
         }).start();
     }
