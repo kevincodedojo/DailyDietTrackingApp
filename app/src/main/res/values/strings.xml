@@ -11,8 +11,10 @@
     <string name="description">Description</string>
     <string name="submit">Submit</string>
     <string name="view_dietart_tips">View Dietart Tips</string>
+
     <string name="username">Username</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="password">Password</string>
-</resources>
+    <string name="let_s_get_started">Let's Get Started</string>
+</resources

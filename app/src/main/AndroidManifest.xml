@@ -13,9 +13,6 @@
         android:theme="@style/Theme.DailyDietTrackingApp"
         tools:targetApi="31">
         <activity
-            android:name=".AddingDietTips"
-            android:exported="false" />
-        <activity
             android:name=".WelcomAdmin"
             android:exported="false" />
         <activity
@@ -26,10 +23,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+        <activity android:name=".AddingDietTips" />
+
+
         <activity
             android:name=".WelcomeUser1"
+
             android:exported="false" />
+        <activity android:name=".LoginPage" />
+
     </application>
 
 </manifest>
