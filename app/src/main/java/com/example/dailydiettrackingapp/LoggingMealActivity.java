@@ -3,6 +3,7 @@ package com.example.dailydiettrackingapp;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class LoggingMealActivity extends AppCompatActivity {
 
     private EditText mealNameEditText, caloriesEditText, proteinEditText, fatEditText, carbsEditText;
     private Button saveMealButton;
+    private TextView mealLogTextView;
     private MealDAO mealDAO;
 
     @Override
@@ -30,6 +32,7 @@ public class LoggingMealActivity extends AppCompatActivity {
         fatEditText = findViewById(R.id.fatEditText);
         carbsEditText = findViewById(R.id.carbsEditText);
         saveMealButton = findViewById(R.id.saveMealButton);
+        mealLogTextView = findViewById(R.id.mealLogTextView);
 
         // Initialize database and DAO
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
@@ -55,7 +58,11 @@ public class LoggingMealActivity extends AppCompatActivity {
                 meal.carbs = Integer.parseInt(carbs);
 
                 mealDAO.insert(meal);
-                Toast.makeText(this, "Meal logged successfully!", Toast.LENGTH_SHORT).show();
+
+                // Append meal details to the log
+                String logEntry = "Name: " + mealName + ", Calories: " + calories +
+                        ", Protein: " + protein + "g, Fat: " + fat + "g, Carbs: " + carbs + "g\n";
+                mealLogTextView.append(logEntry);
 
                 // Clear input fields
                 mealNameEditText.setText("");

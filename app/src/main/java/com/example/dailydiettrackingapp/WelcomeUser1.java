@@ -2,7 +2,6 @@ package com.example.dailydiettrackingapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -30,11 +29,12 @@ public class WelcomeUser1 extends AppCompatActivity {
         Button dietaryTipsButton = findViewById(R.id.btn_dietary_tips);
 
         logDietButton.setOnClickListener(v -> {
-            // Add intent to navigate to Log Diet Activity
+            // Navigate to LoggingMealActivity
+            Intent intent = new Intent(WelcomeUser1.this, LoggingMealActivity.class);
+            startActivity(intent);
         });
 
         trackingDietButton.setOnClickListener(v -> {
-            // Add intent to navigate to Tracking Diet Activity
         });
 
         dietaryTipsButton.setOnClickListener(v -> {
