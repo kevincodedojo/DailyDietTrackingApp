@@ -52,4 +52,10 @@ public class DietTracking {
     public void setCaloriesConsumed(int caloriesConsumed) {
         this.caloriesConsumed = caloriesConsumed;
     }
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+
 }
