@@ -18,4 +18,6 @@
     <string name="password">Password</string>
     <string name="let_s_get_started">Let\'s Get Started</string>
     <string name="login_or_register">Login or Register</string>
+    <string name="continue_next">Continue</string>
+    <string name="coninue_next">Coninue</string>
 </resources>
