@@ -14,7 +14,7 @@ import com.example.dailydiettrackingapp.Database.UserDAO;
 import com.example.dailydiettrackingapp.Database.entities.User;
 
 @RunWith(AndroidJUnit4.class)
-public class LoginActivityTest {
+public class LoginActivtheityTest {
 
     private AppDatabase db;
     private UserDAO userDAO;
