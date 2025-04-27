@@ -1,6 +1,5 @@
 package com.example.dailydiettrackingapp;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -35,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                 getApplicationContext(),
                 AppDatabase.class,
                 "app-database").allowMainThreadQueries().build();
-        userDAO = db.userDAO();;
+        userDAO = db.userDAO();
 
         loginButton.setOnClickListener(v -> {
             String username = usernameEditText.getText().toString();
@@ -44,14 +43,31 @@ public class LoginActivity extends AppCompatActivity {
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Please enter username and password", Toast.LENGTH_SHORT).show();
             } else {
-                User user = new User(username, password);
-                userDAO.insert(user);
-
                 List<User> users = userDAO.getAllUsers();
+                boolean userFound = false;
+
                 for (User u : users) {
+                    if (u.getName().equals(username)) {
+                        userFound = true;
+                        if (u.getPassword().equals(password)) {
+                            Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    }
+                }
+
+                if (!userFound) {
+                    User newUser = new User(username, password);
+                    userDAO.insert(newUser);
+                    Toast.makeText(this, "New user registered successfully!", Toast.LENGTH_SHORT).show();
+                }
+
+                // Debugging output (optional)
+                for (User u : userDAO.getAllUsers()) {
                     Log.d("LoginActivity", "User: " + u.getName() + " Password: " + u.getPassword());
                 }
-                Toast.makeText(this, "User registered successfuly!", Toast.LENGTH_SHORT).show();
             }
         });
     }
